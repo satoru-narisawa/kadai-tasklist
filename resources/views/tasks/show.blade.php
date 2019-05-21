@@ -13,6 +13,10 @@
             <th>タスク名</th>
             <td>{{ $task->content }}</td>
         </tr>
+        <tr>
+            <th>状態</th>
+            <td>{{ $task->status }}</td>
+        </tr>
     </table>
     
     {!! link_to_route("tasks.edit","タスク名を変更する",["id" => $task->id],["class" => "btn btn-success"]) !!}
