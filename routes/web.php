@@ -11,11 +11,12 @@
 |
 */
 
-Route::get("/",function(){
-    return view("welcome");
-});
+Route::get("/","TasksController@index");
 
+//ログインしないとタスクコントローラー使用不可
+Route::group(["middleware" => ["auth"]],function(){
 Route::resource("tasks","TasksController");
+});
 
 //アカウント登録機能
 Route::get("signup","Auth\RegisterController@showRegistrationForm")->name("signup.get");
